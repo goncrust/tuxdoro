@@ -136,4 +136,6 @@ int main() {
 
   close(sfd);
   unlink(SOCKET_PATH);
+
+  return 0;
 }

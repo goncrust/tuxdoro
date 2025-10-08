@@ -1,10 +1,10 @@
-# 🐧 tuxdoro: A Minimalist Command-Line Pomodoro Timer for Linux
+# 🐧 tuxdoro: A Minimalist CLI Pomodoro Timer for Linux
 
-**tuxdoro** is a light-weight, persistent Pomodoro timer designed for Linux. Built in C, it adheres to the Unix philosophy by separating the timer logic (daemon) from the user interface (CLI client) using Inter-Process Communication (IPC).
+**tuxdoro** is a light-weight Pomodoro timer for Linux written in C. It seperates the timer logic (daemon) from the user inerface (CLI client) using IPC.
 
 ## Architecture
 
-Tuxdoro is split into two core components:
+tuxdoro is split into two components:
 
 ### 1. `pomodaemon` (The Service)
 
@@ -30,7 +30,7 @@ The primary way to interact with the timer is through the `pomo` client utility.
 
 ### Configuration
 
-Customize your Pomodoro cycles with the following commands. All changes are persistent.
+To customize the Pomodoro cycles you can use the following commands:
 
 | Command                          | Description                                              | Default    |
 | -------------------------------- | -------------------------------------------------------- | ---------- |

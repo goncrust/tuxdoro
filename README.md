@@ -1,6 +1,8 @@
 # 🐧 tuxdoro: A Minimalist CLI Pomodoro Timer for Linux
 
-**tuxdoro** is a light-weight Pomodoro timer for Linux written in C. It seperates the timer logic (daemon) from the user inerface (CLI client) using IPC.
+**WIP**
+
+**tuxdoro** is a light-weight Pomodoro timer for Linux written in C. It seperates the timer logic (daemon) from the user interface (CLI client) using IPC.
 
 ## Architecture
 

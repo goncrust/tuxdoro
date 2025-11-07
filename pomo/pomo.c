@@ -7,7 +7,7 @@
 #include <sys/un.h>
 #include <unistd.h>
 
-#define SOCKET_PATH "~/tmp/tuxdoro.sock"
+#define SOCKET_PATH "/home/goncrust/tmp/tuxdoro.sock"
 #define BUFFER_SIZE 256
 
 void send_command(const char *command) {
@@ -56,10 +56,13 @@ void send_command(const char *command) {
 }
 
 int main(int argc, char *argv[]) {
-  // TODO
   if (argc < 2) {
     fprintf(stderr, "Usage: %s <command>\n", argv[0]);
     exit(EXIT_FAILURE);
+  }
+
+  if (strncmp(argv[1], "test", 4)) {
+    send_command("test");
   }
 
   send_command(argv[1]);

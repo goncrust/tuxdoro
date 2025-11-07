@@ -11,7 +11,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#define SOCKET_PATH "~/tmp/tuxdoro.sock"
+#define SOCKET_PATH "/home/goncrust/tmp/tuxdoro.sock"
 #define BACKLOG 5
 #define BUFFER_SIZE 256
 
@@ -29,7 +29,8 @@ int setup_socket() {
 
   memset(&addr, 0, sizeof(addr));
   addr.sun_family = AF_UNIX;
-  strncpy(addr.sun_path, SOCKET_PATH, sizeof(addr.sun_path) - 1);
+  strncpy(addr.sun_path, SOCKET_PATH, sizeof(SOCKET_PATH) - 1);
+  addr.sun_path[sizeof(SOCKET_PATH)] = '\0';
 
   if (bind(sfd, (struct sockaddr *)&addr, sizeof(addr)) == -1) {
     perror("failed to bind");
@@ -50,6 +51,10 @@ int setup_socket() {
 void handle_command(char *buffer, char *response, struct PomoState *pstate,
                     struct PomoConfig *pconfig) {
   // TODO
+  if (strncmp(buffer, "test", 4) == 0) {
+    strncpy(response, "testresponse", 12);
+    response[13] = '\0';
+  }
 }
 
 void next_phase(struct PomoState *pstate, struct PomoConfig *pconfig) {
@@ -123,6 +128,7 @@ void run_server(int sfd) {
         if (send(cfd, response, strlen(response), 0) == -1) {
           perror("failed to send response");
         }
+        printf("Sent response: '%s'\n", response);
       }
 
       close(cfd);
